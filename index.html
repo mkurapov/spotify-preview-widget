@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>Spotify Widget</title>
-      <script src="lib/library.js" type="text/javascript"></script>
+      <script src="lib/SPWidget.js" type="text/javascript"></script>
 
     <style>
         body
@@ -26,13 +26,12 @@
  </head>
 
 <body>
-    <div id="spotifyWidget"></div>
+    <div id="SPWidget"></div>
 </body>
 
   <script type="text/javascript">
-      var lib = new Library();
-//      var lib = new window.Library();
-
-      console.log(lib);
+      var widget = new SPWidget({
+          songId: '5ho74ZlMvEbyhFutCd8SGg'
+      }).run();
   </script>
 </html>
