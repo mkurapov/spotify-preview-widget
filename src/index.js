@@ -5,8 +5,9 @@ export default class SPWidget {
 
     this.songId = '';
     this.artist = '';
-    this.name = '';
+    this.title = '';
     this.previewUrl = '';
+    this.externalUrl = '';
     this.player = new Audio();
     this.playButton = {};
     this.playhead = {};
@@ -58,15 +59,16 @@ export default class SPWidget {
 
   }
 
-  run()
+  start()
   {
     var songPromise = getSongData(this.songId);
     songPromise.then((result) =>
     {
 
-      this.name = result.name;
+      this.title = result.name;
       this.artist = result.artists[0].name;
       this.imageUrl = result.album.images[0].url;
+      this.externalUrl = result.external_urls.spotify;
       this.previewUrl = result.preview_url;
       this.player.src = result.preview_url;
 
@@ -80,15 +82,19 @@ export default class SPWidget {
     });
   }
 
+
+
   displayPlayer()
   {
+    
     var widget = document.getElementById('SPWidget');
     if (widget)
     {
       var htmlString = `<img id="album-image" src=${this.imageUrl}></img>
-                        <div class="info">
+                        <a href="${this.externalUrl}" class="link-to-song"><i class="fa fa-spotify"></i></a>
+                        <div id="info">
                             <div class="artist">${this.artist}</div>
-                            <div class="song-name">${this.name}</div>
+                            <div class="song-name">${this.title}</div>
                             <div id="play-button" class="paused">
                                 <i class="fa fa-play"></i>
                             </div>
@@ -99,15 +105,17 @@ export default class SPWidget {
 
       widget.innerHTML = htmlString;
 
+
       this.playButton = document.getElementById('play-button');
       this.playhead = document.getElementById('playhead');
       this.timeline = document.getElementById('timeline');
 
       this.playButton.onclick = () => this.togglePlay();
-    }
-    else
+
+
+  } else
     {
-      console.error('No div with id "spotifyWidget" found');
+      console.log('No div with id SPWidget was found');
     }
   }
 

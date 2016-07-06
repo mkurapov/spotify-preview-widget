@@ -2,11 +2,25 @@ body {
     margin: 0;
 }
 
+#SPWidget .link-to-song
+{
+    color: inherit;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+}
+
+#SPWidget .link-to-song i
+{
+    font-size: 30px;
+}
+
 #SPWidget {
+    position: relative;
     width: 400px;
     height: 200px;
     margin: 50px auto 0 auto;
-    background: rgba(72, 118, 178, 0.68);
+    background: rgba(65, 93, 146, 0.68);
     -webkit-box-shadow: -1px 17px 89px 6px rgba(0,0,0,0.33);
     -moz-box-shadow: -1px 17px 89px 6px rgba(0,0,0,0.33);
     box-shadow: -1px 17px 89px 6px rgba(0,0,0,0.33);
@@ -30,7 +44,20 @@ body {
     height: 200px;
 }
 
-#SPWidget .info {
+#SPWidget .link-to-song
+{
+    color: inherit;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+}
+
+#SPWidget .link-to-song i
+{
+    font-size: 30px;
+}
+
+#SPWidget #info {
     position: relative;
     width: calc(100%/2);
     height: 100%;
@@ -38,10 +65,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-self: center;
+    border-top: 7px solid white;
+    border-right: 7px solid white;
+    border-left: 7px solid white;
+    box-sizing: border-box;
 }
 
 #SPWidget .artist {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 #SPWidget .song-name {
@@ -89,7 +120,7 @@ body {
 {
     font-size: 25px;
     margin: 13px 0 0 0;
-    color: rgba(72, 118, 178, 0.68);
+    color: rgba(65, 93, 146, 0.68);
 }
 
 #SPWidget #play-button i.fa.fa-play
