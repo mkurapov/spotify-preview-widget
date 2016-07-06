@@ -4,24 +4,115 @@
   <head>
     <meta charset="utf-8">
     <title>Spotify Widget</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
       <script src="lib/SPWidget.js" type="text/javascript"></script>
-
     <style>
-        body
-        {
-            margin:0;
+        body {
+            margin: 0;
         }
-        #spotifyWidget
-        {
+
+        #SPWidget {
             width: 400px;
-            height:200px;
-        }
-        #spotifyWidget img
-        {
-            float: left;
             height: 200px;
-            width: 200px;
+            margin: 50px auto 0 auto;
+            background: rgba(72, 118, 178, 0.68);
+            -webkit-box-shadow: -1px 17px 89px 6px rgba(0,0,0,0.33);
+            -moz-box-shadow: -1px 17px 89px 6px rgba(0,0,0,0.33);
+            box-shadow: -1px 17px 89px 6px rgba(0,0,0,0.33);
+            display: flex;
+            text-align: center;
+            font-family: "Trade Gothic LT Std", Helvetica;
+            color: white;
+            text-transform: uppercase;
+            flex-direction: row;
         }
+
+        #SPWidget.vertical
+        {
+            width: 200px;
+            height: 400px;
+            flex-direction: column;
+        }
+
+        #SPWidget img {
+            width: 200px;
+            height: 200px;
+        }
+
+        #SPWidget .info {
+            position: relative;
+            width: calc(100%/2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-self: center;
+        }
+
+        #SPWidget .artist {
+            font-size: 40px;
+        }
+
+        #SPWidget .song-name {
+            font-size: 15px;
+        }
+
+        #SPWidget #play-button {
+            height: 50px;
+            width: 50px;
+            background-color: white;
+            border-radius: 50%;
+            align-self: center;
+            margin-top: 20px;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #SPWidget #timeline
+        {
+            position: absolute;
+            bottom: 0;
+            height: 7px;
+            width: 100%;
+            margin:0;
+            background: white;
+            /*margin-top: 60px;*/
+
+        }
+
+        #SPWidget #playhead
+        {
+            left:0;
+            bottom: 0;
+            position: absolute;
+            height:7px;
+            width: 7px;
+            background: black;
+            transition: all 0.5s linear;
+
+        }
+
+
+        #SPWidget #play-button i
+        {
+            font-size: 25px;
+            margin: 13px -4px 0 0;
+            color: rgba(72, 118, 178, 0.68);
+        }
+
+        #SPWidget #play-button i.fa.fa-pause
+        {
+            margin: 13px 0 0 0;
+        }
+
+        #SPWidget #play-button:active {
+            -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+        }
+
+
     </style>
  </head>
 
@@ -31,7 +122,7 @@
 
   <script type="text/javascript">
       var widget = new SPWidget({
-          songId: '5ho74ZlMvEbyhFutCd8SGg'
+          songId: '12VWzyPDBCc8fqeWCAfNwR'
       }).run();
   </script>
 </html>
