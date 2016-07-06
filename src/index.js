@@ -8,6 +8,9 @@ export default class SPWidget {
     this.name = '';
     this.previewUrl = '';
     this.player = new Audio();
+    this.playButton = {};
+    this.playhead = {};
+    this.timeline = {};
 
     if (params)
     {
@@ -33,22 +36,26 @@ export default class SPWidget {
 
   buttonPlaying()
   {
-    var playButton = document.getElementById('play-button');
-
-    if (playButton)
+    if (this.playButton)
     {
-      playButton.setAttribute("class", "playing");
+      //set new class of icon
+      this.playButton.children[0].setAttribute("class", "fa fa-pause");
     }
   }
 
   buttonPaused()
   {
-    var playButton = document.getElementById('play-button');
-
-    if (playButton)
+    if (this.playButton)
     {
-      playButton.setAttribute("class", "paused");
+      this.playButton.children[0].setAttribute("class", "fa fa-play");
     }
+  }
+
+  updateTime()
+  {
+    var playPercent = (this.timeline.offsetWidth - this.playhead.offsetWidth) * (this.player.currentTime / this.player.duration);
+    this.playhead.style.left = playPercent + "px";
+
   }
 
   run()
@@ -65,6 +72,7 @@ export default class SPWidget {
 
       this.player.onplay = () => this.buttonPlaying();
       this.player.onpause = () => this.buttonPaused();
+      this.player.ontimeupdate = () => this.updateTime();
 
       console.log(this);
       this.displayPlayer();
@@ -77,17 +85,25 @@ export default class SPWidget {
     var widget = document.getElementById('SPWidget');
     if (widget)
     {
-      var htmlString = `<img src=${this.imageUrl}></img>`;
-      htmlString += `<div class="info">`;
-      htmlString += `<div class="artist">${this.artist}</div>`;
-      htmlString += `<div class="song-name">${this.name}</div>`;
-      htmlString += `<div id="play-button" class="paused"></div>`;
-      htmlString += `</div>`;
+      var htmlString = `<img id="album-image" src=${this.imageUrl}></img>
+                        <div class="info">
+                            <div class="artist">${this.artist}</div>
+                            <div class="song-name">${this.name}</div>
+                            <div id="play-button" class="paused">
+                                <i class="fa fa-play"></i>
+                            </div>
+                            <div id="timeline">
+                                <div id="playhead"></div>
+                            </div>
+                        </div>`;
 
       widget.innerHTML = htmlString;
 
-      var playButton = document.getElementById('play-button');
-      playButton.onclick = () => this.togglePlay();
+      this.playButton = document.getElementById('play-button');
+      this.playhead = document.getElementById('playhead');
+      this.timeline = document.getElementById('timeline');
+
+      this.playButton.onclick = () => this.togglePlay();
     }
     else
     {
