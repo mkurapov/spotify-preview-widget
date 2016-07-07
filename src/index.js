@@ -116,7 +116,6 @@ export default class SPWidget {
       this.playhead = document.getElementById('playhead');
       this.timeline = document.getElementById('timeline');
 
-      console.log('primary' + this.primaryColor);
       if (this.primaryColor)
       {
         widget.style.background = this.primaryColor;
