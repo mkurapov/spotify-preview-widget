@@ -55,6 +55,7 @@ body {
 #SPWidget .link-to-song i
 {
     font-size: 30px;
+    text-shadow: 2px 2px 2px #2C2C2C;
 }
 
 #SPWidget #info {
