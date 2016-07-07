@@ -23,8 +23,9 @@ Sample usage (this can be found in index.html)
 </body>
 
   <script type="text/javascript">
-      var widget = new SPWidget({
-          songId: 'enter song id here'
+     var widget = new SPWidget({
+          songId: 'enter song id here',
+          primaryColor: 'enter css color here' //optional, will default to blue
       }).start();
   </script>
 </html>
