@@ -7,15 +7,15 @@ To get an id of a song from Spotify, simply right click and select copy URL.
 
 ## Usage
 
-Make sure to include both of the files in the src folder. Also, this widget relies on font awesome for the play/pause icons, feel free to make your own.
+Make sure to inlcude the styles.css which can be found in the css folder. Also, this widget relies on font awesome for the play/pause icons, feel free to make your own.
 
 Sample usage (this can be found in index.html) 
 ```
 <html lang="en">
   <head>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-      <link rel="stylesheet" href="src/styles.css">
-      <script src="src/SPWidget.js" type="text/javascript"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"> //need for icons
+      <link rel="stylesheet" href="css/styles.css">  //need for styling
+      <script src="lib/SPWidget.min.js" type="text/javascript"></script>  //main lib file
  </head>
 
 <body>
