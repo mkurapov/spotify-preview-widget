@@ -4,6 +4,7 @@ export default class SPWidget {
   constructor(params) {
 
     this.songId = '';
+    this.primaryColor = '';
     this.artist = '';
     this.title = '';
     this.previewUrl = '';
@@ -16,6 +17,12 @@ export default class SPWidget {
     if (params)
     {
       this.songId = params.songId;
+      console.log(params);
+
+      if (params.primaryColor)
+      {
+        this.primaryColor = params.primaryColor;
+      }
     }
     else
     {
@@ -86,7 +93,6 @@ export default class SPWidget {
 
   displayPlayer()
   {
-    
     var widget = document.getElementById('SPWidget');
     if (widget)
     {
@@ -109,6 +115,13 @@ export default class SPWidget {
       this.playButton = document.getElementById('play-button');
       this.playhead = document.getElementById('playhead');
       this.timeline = document.getElementById('timeline');
+
+      console.log('primary' + this.primaryColor);
+      if (this.primaryColor)
+      {
+        widget.style.background = this.primaryColor;
+        this.playButton.children[0].style.color = this.primaryColor;
+      }
 
       this.playButton.onclick = () => this.togglePlay();
 
