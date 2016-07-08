@@ -73,13 +73,16 @@ body {
 }
 
 #SPWidget .artist {
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 10px;
 }
 
 #SPWidget .song-name {
     font-size: 13px;
     font-style: italic;
+    padding: 0 8px;
+    max-height: 30px;
+    overflow: hidden;
 }
 
 #SPWidget #play-button {
@@ -93,7 +96,10 @@ body {
     color: black;
     text-align: center;
     cursor: pointer;
+    transition: box-shadow 0.5s ease-in-out;
 }
+
+#SPWidget #play-button:hover{box-shadow: 0px 0px 5px 4px rgba(0,0,0,0.33);}
 
 #SPWidget #play-button i
 {
@@ -133,8 +139,12 @@ body {
 
 #SPWidget #bars
 {
-    width: 30px;
+    width: 25px;
+    height: 25px;
     align-self: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 }
 
 #SPWidget #bars .bar
@@ -142,15 +152,14 @@ body {
     width: 7px;
     height:2px;
     background-color: white;
-    display: inline-block;
-    animation: bar-jump 0.4s infinite ease;
+    animation: bar-jump 0.5s infinite ease-in;
     animation-play-state: paused;
 }
 #SPWidget #bars.playing .bar {animation-play-state:running;}
 #SPWidget #bars.paused .bar {animation-play-state: paused; }
 #SPWidget #bars .bar.one { animation-delay: 0.15s; }
-#SPWidget #bars .bar.two { animation-delay: 0.2s;  }
-#SPWidget #bars .bar.three { animation-delay: 0.3s;  }
+#SPWidget #bars .bar.two { animation-delay: 0.1s;  }
+#SPWidget #bars .bar.three { animation-delay: 0.35s;  }
 
 
 @keyframes bar-jump {
