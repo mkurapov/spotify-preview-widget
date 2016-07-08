@@ -143,9 +143,11 @@ body {
     height:2px;
     background-color: white;
     display: inline-block;
+    animation: bar-jump 0.4s infinite ease;
+    animation-play-state: paused;
 }
-#SPWidget #bars.playing .bar {animation: bar-jump 0.4s infinite ease;}
-#SPWidget #bars.paused .bar {animation: none;  }
+#SPWidget #bars.playing .bar {animation-play-state:running;}
+#SPWidget #bars.paused .bar {animation-play-state: paused; }
 #SPWidget #bars .bar.one { animation-delay: 0.15s; }
 #SPWidget #bars .bar.two { animation-delay: 0.2s;  }
 #SPWidget #bars .bar.three { animation-delay: 0.3s;  }
