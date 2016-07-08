@@ -116,6 +116,7 @@ export default class SPWidget {
                             </div>
                         </div>`;
 
+
       widget.innerHTML = htmlString;
 
 
@@ -126,7 +127,7 @@ export default class SPWidget {
       if (this.primaryColor)
       {
         widget.style.background = this.primaryColor;
-        this.playButton.children[0].style.color = this.primaryColor;
+        // this.playButton.children[0].style.color = this.primaryColor;
       }
 
       this.playButton.onclick = () => this.togglePlay();
