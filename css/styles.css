@@ -26,7 +26,7 @@ body {
     box-shadow: -1px 17px 89px 6px rgba(0,0,0,0.33);
     display: flex;
     text-align: center;
-    font-family: "Trade Gothic LT Std", Helvetica;
+    font-family: "Roboto", Helvetica;
     color: white;
     text-transform: uppercase;
     flex-direction: row;
@@ -48,7 +48,7 @@ body {
 {
     color: inherit;
     position: absolute;
-    left: 20px;
+    left: 10px;
     bottom: 10px;
 }
 
@@ -74,22 +74,36 @@ body {
 
 #SPWidget .artist {
     font-size: 30px;
+    margin-top: 10px;
 }
 
 #SPWidget .song-name {
-    font-size: 15px;
+    font-size: 13px;
+    font-style: italic;
 }
 
 #SPWidget #play-button {
-    height: 50px;
-    width: 50px;
-    background-color: white;
+    height: 45px;
+    width: 45px;
+    background: white;
     border-radius: 50%;
     align-self: center;
-    margin-top: 20px;
+    margin-top: 10px;
     color: black;
     text-align: center;
     cursor: pointer;
+}
+
+#SPWidget #play-button i
+{
+    font-size: 20px;
+    margin: 13px 0 0 0;
+    color: rgba(65, 93, 146, 0.68);
+}
+
+#SPWidget #play-button i.fa.fa-play
+{
+    margin: 13px -4px 0 0;
 }
 
 #SPWidget #timeline
@@ -116,18 +130,47 @@ body {
 
 }
 
-
-#SPWidget #play-button i
+#SPWidget #bars
 {
-    font-size: 25px;
-    margin: 13px 0 0 0;
-    color: rgba(65, 93, 146, 0.68);
+    width: 100%;
+    height: 15px;
+    align-self: center;
 }
 
-#SPWidget #play-button i.fa.fa-play
+#SPWidget #bars .bar
 {
-    margin: 13px -4px 0 0;
+    width: 7px;
+    height:2px;
+    background-color: white;
+    display: inline-block;
 }
+#SPWidget #bars.playing .bar {animation: bar-jump 0.4s infinite ease;}
+#SPWidget #bars.paused .bar {animation: none;  }
+#SPWidget #bars .bar.one { animation-delay: 0.15s; }
+#SPWidget #bars .bar.two { animation-delay: 0.2s;  }
+#SPWidget #bars .bar.three { animation-delay: 0.3s;  }
+
+
+@keyframes bar-jump {
+
+    0%
+    {
+        height:10px;
+    }
+    50%
+    {
+        height:16px;
+    }
+    75%
+    {
+        height: 5px;
+    }
+    100%
+    {
+        height: 10px;
+    }
+}
+
 
 #SPWidget #play-button:active {
     -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);

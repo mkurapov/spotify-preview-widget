@@ -48,6 +48,7 @@ export default class SPWidget {
     {
       //set new class of icon
       this.playButton.children[0].setAttribute("class", "fa fa-pause");
+        document.getElementById('bars').setAttribute("class", "playing");
     }
   }
 
@@ -56,6 +57,7 @@ export default class SPWidget {
     if (this.playButton)
     {
       this.playButton.children[0].setAttribute("class", "fa fa-play");
+        document.getElementById('bars').setAttribute("class", "paused");
     }
   }
 
@@ -99,6 +101,11 @@ export default class SPWidget {
       var htmlString = `<img id="album-image" src=${this.imageUrl}></img>
                         <a href="${this.externalUrl}" class="link-to-song"><i class="fa fa-spotify"></i></a>
                         <div id="info">
+                            <div id="bars">
+                                <div class="bar one"></div>
+                                <div class="bar two"></div>
+                                <div class="bar three"></div>
+                            </div>
                             <div class="artist">${this.artist}</div>
                             <div class="song-name">${this.title}</div>
                             <div id="play-button" class="paused">
