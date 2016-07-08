@@ -98,13 +98,13 @@ body {
 #SPWidget #play-button i
 {
     font-size: 15px;
-    margin: 13px 0 0 0;
+    margin: 12px 0 0 0;
     color: white;
 }
 
 #SPWidget #play-button i.fa.fa-play
 {
-    margin: 13px -4px 0 0;
+    margin: 12px -4px 0 0;
 }
 
 #SPWidget #timeline
@@ -134,7 +134,6 @@ body {
 #SPWidget #bars
 {
     width: 30px;
-    height: 15px;
     align-self: center;
 }
 
