@@ -2,7 +2,7 @@ body {
     margin: 0;
 }
 
-#SPWidget .link-to-song
+.SPWidget .link-to-song
 {
     color: inherit;
     position: absolute;
@@ -10,12 +10,12 @@ body {
     bottom: 10px;
 }
 
-#SPWidget .link-to-song i
+.SPWidget .link-to-song i
 {
     font-size: 30px;
 }
 
-#SPWidget {
+.SPWidget {
     position: relative;
     width: 400px;
     height: 200px;
@@ -32,19 +32,19 @@ body {
     flex-direction: row;
 }
 
-#SPWidget.vertical
+.SPWidget.vertical
 {
     width: 200px;
     height: 400px;
     flex-direction: column;
 }
 
-#SPWidget img {
+.SPWidget img {
     width: 200px;
     height: 200px;
 }
 
-#SPWidget .link-to-song
+.SPWidget .link-to-song
 {
     color: inherit;
     position: absolute;
@@ -52,13 +52,13 @@ body {
     bottom: 10px;
 }
 
-#SPWidget .link-to-song i
+.SPWidget .link-to-song i
 {
     font-size: 30px;
     text-shadow: 2px 2px 2px #2C2C2C;
 }
 
-#SPWidget #info {
+.SPWidget #info {
     position: relative;
     width: calc(100%/2);
     height: 100%;
@@ -72,12 +72,12 @@ body {
     box-sizing: border-box;
 }
 
-#SPWidget .artist {
+.SPWidget .artist {
     font-size: 25px;
     margin-top: 10px;
 }
 
-#SPWidget .song-name {
+.SPWidget .song-name {
     font-size: 13px;
     font-style: italic;
     padding: 0 8px;
@@ -85,7 +85,7 @@ body {
     overflow: hidden;
 }
 
-#SPWidget #play-button {
+.SPWidget #play-button {
     height: 40px;
     width: 40px;
     background: transparent;
@@ -99,21 +99,21 @@ body {
     transition: box-shadow 0.5s ease-in-out;
 }
 
-#SPWidget #play-button:hover{box-shadow: 0px 0px 5px 4px rgba(255,255,255,0.33);}
+.SPWidget #play-button:hover{box-shadow: 0px 0px 5px 4px rgba(255,255,255,0.33);}
 
-#SPWidget #play-button i
+.SPWidget #play-button i
 {
     font-size: 15px;
     margin: 12px 0 0 0;
     color: white;
 }
 
-#SPWidget #play-button i.fa.fa-play
+.SPWidget #play-button i.fa.fa-play
 {
     margin: 12px -4px 0 0;
 }
 
-#SPWidget #timeline
+.SPWidget #timeline
 {
     position: absolute;
     bottom: 0;
@@ -125,7 +125,7 @@ body {
 
 }
 
-#SPWidget #playhead
+.SPWidget #playhead
 {
     left:0;
     bottom: 0;
@@ -137,7 +137,7 @@ body {
 
 }
 
-#SPWidget #bars
+.SPWidget .bars
 {
     width: 25px;
     height: 25px;
@@ -147,7 +147,7 @@ body {
     justify-content: space-between;
 }
 
-#SPWidget #bars .bar
+.SPWidget .bars .bar
 {
     width: 7px;
     height:2px;
@@ -155,11 +155,11 @@ body {
     animation: bar-jump 0.5s infinite ease-in;
     animation-play-state: paused;
 }
-#SPWidget #bars.playing .bar {animation-play-state:running;}
-#SPWidget #bars.paused .bar {animation-play-state: paused; }
-#SPWidget #bars .bar.one { animation-delay: 0.15s; }
-#SPWidget #bars .bar.two { animation-delay: 0.1s;  }
-#SPWidget #bars .bar.three { animation-delay: 0.35s;  }
+.SPWidget .bars.playing .bar {animation-play-state:running;}
+.SPWidget .bars.paused .bar {animation-play-state: paused; }
+.SPWidget .bars .bar.one { animation-delay: 0.15s; }
+.SPWidget .bars .bar.two { animation-delay: 0.1s;  }
+.SPWidget .bars .bar.three { animation-delay: 0.35s;  }
 
 
 @keyframes bar-jump {
@@ -180,11 +180,4 @@ body {
     {
         height: 10px;
     }
-}
-
-
-#SPWidget #play-button:active {
-    -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }

@@ -19,13 +19,14 @@ Sample usage (this can be found in index.html)
  </head>
 
 <body>
-    <div id="SPWidget"></div> //elements will be added to this div
+    <div class="SPWidget" id="myWidget"></div> //elements will be added to this div, make sure to specify class="SPWidget" to get styles
 </body>
 
   <script type="text/javascript">
      var widget = new SPWidget({
-          songId: 'enter song id here',
-          primaryColor: 'enter css color here' //optional, will default to blue
+          songId: *enter song id here*,
+          primaryColor: *enter css color here* //optional, will default to blue,
+          element: *enter the element id to hook widget to*  //example: '#myWidget' as shown above. Will default to "SPWidget".
       }).start();
   </script>
 </html>

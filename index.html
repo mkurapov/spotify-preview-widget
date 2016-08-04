@@ -10,13 +10,20 @@
  </head>
 
 <body>
-    <div id="SPWidget"></div>
+    <div id="SPWidget" class="SPWidget"></div>
+    <div id="whatsup" class="SPWidget"></div>
 </body>
 
   <script type="text/javascript">
       var widget = new SPWidget({
-          songId: '2JGSYOFs3qNgd4hhvhrkf8',
-          primaryColor: 'black'
+          songId: '03v70ZBxmcPX3RWAZMzqaW',
+          primaryColor: 'rgba(143,58,81,1)',
+      }).start();
+
+      var widget2 = new SPWidget({
+          songId: '1ahmi73yMYGgUC0uxDXIjY',
+          primaryColor: 'rgba(143,58,21,1)',
+          element:'#whatsup'
       }).start();
 
   </script>

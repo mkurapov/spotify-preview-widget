@@ -13,16 +13,19 @@ export default class SPWidget {
     this.playButton = {};
     this.playhead = {};
     this.timeline = {};
+    this.element = '#SPWidget';
 
     if (params)
     {
       this.songId = params.songId;
-      console.log(params);
+      this.primaryColor = params.primaryColor || '#89aeed';
 
-      if (params.primaryColor)
+      if (params.element)
       {
-        this.primaryColor = params.primaryColor;
+        this.element = params.element;
       }
+
+
     }
     else
     {
@@ -48,7 +51,8 @@ export default class SPWidget {
     {
       //set new class of icon
       this.playButton.children[0].setAttribute("class", "fa fa-pause");
-        document.getElementById('bars').setAttribute("class", "playing");
+      console.log(document.querySelector(this.element).querySelector('.bars'));
+      document.querySelector(this.element).querySelector('.bars').setAttribute("class", "bars playing");
     }
   }
 
@@ -57,7 +61,7 @@ export default class SPWidget {
     if (this.playButton)
     {
       this.playButton.children[0].setAttribute("class", "fa fa-play");
-        document.getElementById('bars').setAttribute("class", "paused");
+      document.querySelector(this.element).querySelector('.bars').setAttribute("class", "bars paused");
     }
   }
 
@@ -65,7 +69,6 @@ export default class SPWidget {
   {
     var playPercent = (this.timeline.offsetWidth - this.playhead.offsetWidth) * (this.player.currentTime / this.player.duration);
     this.playhead.style.left = playPercent + "px";
-
   }
 
   start()
@@ -95,13 +98,13 @@ export default class SPWidget {
 
   displayPlayer()
   {
-    var widget = document.getElementById('SPWidget');
+    var widget = document.querySelector(this.element);
     if (widget)
     {
       var htmlString = `<img id="album-image" src=${this.imageUrl}></img>
                         <a href="${this.externalUrl}" class="link-to-song"><i class="fa fa-spotify"></i></a>
                         <div id="info">
-                            <div id="bars">
+                            <div class="bars">
                                 <div class="bar one"></div>
                                 <div class="bar two"></div>
                                 <div class="bar three"></div>
@@ -120,22 +123,20 @@ export default class SPWidget {
       widget.innerHTML = htmlString;
 
 
-      this.playButton = document.getElementById('play-button');
-      this.playhead = document.getElementById('playhead');
-      this.timeline = document.getElementById('timeline');
+      this.playButton = document.querySelector(this.element).querySelector('#play-button');
+      this.playhead = document.querySelector(this.element).querySelector('#playhead');
+      this.timeline = document.querySelector(this.element).querySelector('#timeline');
 
-      if (this.primaryColor)
-      {
-        widget.style.background = this.primaryColor;
-        // this.playButton.children[0].style.color = this.primaryColor;
-      }
+
+      widget.style.background = this.primaryColor;
+
 
       this.playButton.onclick = () => this.togglePlay();
 
 
-  } else
+    } else
     {
-      console.log('No div with id SPWidget was found');
+      console.log('No div with id SPWidget was found. Add #SPWidget, or pass in an element query selector as a prop.');
     }
   }
 
@@ -158,6 +159,6 @@ function getSongData(songId)
     }
 
   }).then( (data) => {
-      return data;
+    return data;
   });
 }
